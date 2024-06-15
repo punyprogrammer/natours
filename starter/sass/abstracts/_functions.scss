@@ -1,0 +1,6 @@
+// All the defined mixins
+// Define a mixin to apply opacity to a color
+@function modify-opacity($color, $opacity) {
+    @return rgba($color, $opacity);
+  }
+  
