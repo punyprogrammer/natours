@@ -1,40 +1,40 @@
 /* header part of the layout */
 .header {
-    height: 95vh;
-    background-image: linear-gradient(
-        to right bottom,
-        modify-opacity($color-light-green, 0.8),
-        modify-opacity($color-medium-green, 0.8)
-      ),
-      url("../img/hero.jpg");
-    background-size: cover;
-    /* This will set the top fixed */
-    background-position: top;
-    /* clip path*/
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    /* for positioning relative  */
-    position: relative;
-  
-    /* styling for the logo  container*/
-    &__logo-box {
-      position: absolute;
-      top: 40px;
-      left: 40px;
-    }
-  
-    /* styling for the logo */
-    &__logo {
-      height: 35px;
-      /* for smooth animation */
-      transition: all 0.3s;
-    }
-  
-    &__text-box {
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      /* here the values are of the current element and not the parent */
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      modify-opacity($color-primary-light, 0.8),
+      modify-opacity($color-primary-dark, 0.8)
+    ),
+    url("../img/hero.jpg");
+  background-size: cover;
+  /* This will set the top fixed */
+  background-position: top;
+  /* clip path*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* for positioning relative  */
+  position: relative;
+
+  /* styling for the logo  container*/
+  &__logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
   }
+
+  /* styling for the logo */
+  &__logo {
+    height: 35px;
+    /* for smooth animation */
+    transition: all 0.3s;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* here the values are of the current element and not the parent */
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
