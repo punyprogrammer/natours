@@ -6,3 +6,153 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+/* universal selector */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Always mention font family in body so that inherited by child */
+body{
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color:#777;
+    padding:30px;
+
+}
+/* header of the  */
+.header{
+    height: 95vh;
+    background-image: linear-gradient(to right bottom,#7ed56f9a, #28b485d4),url('../img/hero.jpg');
+    background-size: cover;
+    /* This will set the top fixed */
+    background-position: top;
+    /* clip path*/
+    clip-path:polygon(0 0,100% 0 ,100% 75vh,0 100%);
+    /* for positioning relative  */
+    position: relative;
+
+}
+/* styling for the logo */
+.logo-box{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+   
+}
+.logo{
+    height: 35px;
+    /* for smooth animation */
+    transition: all 0.3s;
+}
+/* contains scss for the header texts */
+.header-text-box{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* here the values are of the current element and not the parent */
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.heading-primary{
+    color:#fff;
+    text-transform: uppercase;
+}
+.heading-primary-main{
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    /* add animation */
+    /* animation-name: moveInLeft;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-out; */
+    animation: moveInLeft 1s ease-out;
+}
+.heading-primary-sub{
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+    margin-bottom: 60px;
+    animation: moveInRight 1s ease-out;
+}
+/* style the headers button */
+.btn:link,
+.btn:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 32px;
+    border-radius: 100px;
+    /* note transformation is only applicable to block elements */
+    display: inline-block;
+    transition: all 0.2s ease-in;
+    position:relative;
+
+}
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.btn:active{
+    transform:translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+
+}
+.btn-white{
+    background-color: #fff;
+    color: #777;
+}
+.btn::after{
+    content:"";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition:all 0.4s;
+}
+.btn-white::after{
+    background-color: #fff;
+}
+.btn-white:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+
+}
+/* define keyframes */
+@keyframes moveInLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+
+    }
+    75%{
+        transform: translateX(20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+}
+@keyframes moveInRight{
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+
+    }
+    75%{
+        transform: translateX(-20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+}
