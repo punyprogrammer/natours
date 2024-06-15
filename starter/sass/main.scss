@@ -1,0 +1,195 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+/* universal selector */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// All the defined variables
+$color-light-green: #7ed56f;
+$color-medium-green: #55c57a;
+$color-dark-green: #28b485;
+$color-white: #fff;
+$color-grey-dark: #777;
+$color-black: #000;
+
+// All the defined mixins
+// Define a mixin to apply opacity to a color
+@function modify-opacity($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+/* Always mention font family in body so that inherited by child */
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 30px;
+}
+
+/* header of the  */
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      modify-opacity($color-light-green, 0.8),
+      modify-opacity($color-medium-green, 0.8)
+    ),
+    url("../img/hero.jpg");
+  background-size: cover;
+  /* This will set the top fixed */
+  background-position: top;
+  /* clip path*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* for positioning relative  */
+  position: relative;
+
+  /* styling for the logo  container*/
+  &__logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+  }
+
+  /* styling for the logo */
+  &__logo {
+    height: 35px;
+    /* for smooth animation */
+    transition: all 0.3s;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* here the values are of the current element and not the parent */
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
+
+/* contains scss for the header texts */
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+
+  //   for the main heading
+  &--main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    /* add animation */
+    /* animation-name: moveInLeft;
+        animation-duration: 0.6s;
+        animation-timing-function: ease-out; */
+    animation: moveInLeft 1s ease-out;
+  }
+
+  &--sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+    margin-bottom: 60px;
+    animation: moveInRight 1s ease-out;
+  }
+}
+
+/* style the button */
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 32px;
+    border-radius: 100px;
+    /* note transformation is only applicable to block elements */
+    display: inline-block;
+    transition: all 0.2s ease-in;
+    position: relative;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px modify-opacity($color-black, 0.2);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px modify-opacity($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+
+    &:hover {
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+      }
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+}
+
+/* define keyframes */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  75% {
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  75% {
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
