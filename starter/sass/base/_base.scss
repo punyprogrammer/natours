@@ -4,7 +4,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+html {
+  font-size: 62.5%;
+}
 /* Always mention font family in body so that inherited by child */
 body {
   padding: 30px;
