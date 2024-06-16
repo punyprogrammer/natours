@@ -4,3 +4,17 @@
   //   the account for the navbar wedge
   margin-top: -25vh;
 }
+.section-features {
+  padding: 20rem 10rem;
+  background-image: linear-gradient(
+      to right bottom,
+      modify-opacity($color-primary-light, 0.8),
+      modify-opacity($color-primary-dark, 0.8)
+    ),
+    url("../img/hero.jpg");
+  background-size: cover;
+  transform: skewY(-7deg) translateY(-10rem);
+  & > * {
+    transform: skewY(7deg);
+  }
+}
