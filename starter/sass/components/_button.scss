@@ -1,5 +1,6 @@
 /* style the button */
 .btn {
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -10,6 +11,8 @@
     display: inline-block;
     transition: all 0.2s ease-in;
     position: relative;
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
